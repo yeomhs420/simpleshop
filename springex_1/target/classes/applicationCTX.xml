@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans"> 
+<bean class="com.javalec.ex.Student" id="student2"> 
+<constructor-arg value="홍길순"/> 
+<constructor-arg value="30"/>
+<constructor-arg>
+	<list> 
+		<value>마라톤</value> 
+		<value>요리</value>
+	</list> 
+</constructor-arg> 
+<property value="190" name="height"/> 
+<property value="70" name="weight"/> 
+</bean> 
+</beans>
