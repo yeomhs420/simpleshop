@@ -1,0 +1,41 @@
+
+{{#comments}}
+    <div class="card">
+        <div class="container">
+            <h4 style="display:inline">{{nickname}}</h4> ({{createdAt}})
+            <p>{{body}}</p>
+        </div>
+    </div>
+{{/comments}}
+
+
+
+<div>
+    <div>
+        <!-- 댓글 작성 폼-->
+        <form method = "post" action="/commentAction">
+            <div class="mb-3">
+                <label class="form-label">닉네임</label>
+                <input type="text" class="form-control form-control-sm" name="nickname">
+            </div>
+            <!-- 댓글 본문 입력 -->
+            <div class="mb-3">
+                <label class="form-label">댓글 내용</label>
+                <textarea type="text"  class="form-control form-control-sm"rows="3" name="body"></textarea>
+            </div>
+            <!-- 전송 버튼 -->
+            {{#bbs}}
+                <input type="hidden" name="bbsId" value={{id}}>
+            {{/bbs}}
+            {{#userID}}
+                <input type="hidden" name="userID" value={{userID}}>
+            {{/userID}}
+
+            <button style="margin-top:5px" type="submit" class="btn btn-outline-primary btn-sm"> 댓글 작성</button>
+        </form>
+    </div>
+</div>
+
+
+
+</div>

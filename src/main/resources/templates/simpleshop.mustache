@@ -1,0 +1,134 @@
+{{>layouts/header}}
+
+<head>
+    <link href="/css/style5.css" rel="stylesheet"/>
+</head>
+
+{{#msg}}
+    <script>
+        alert('{{msg}}')
+        location.href = '/shop'
+    </script>
+{{/msg}}
+
+<body>
+
+<div class="background_photo"></div>
+
+<div class="Products">
+    <h1>Our New Products</h1>
+    <div class="text">
+        <a href="#"><img src="https://bakey-api.codeit.kr/files/629/images/sunglasses.jpg" width="225" height="225"></a>
+        <h2>Sunglasses</h2>
+
+            <p>49,000
+                {{#userID}}
+                    <input type='button' value='구매' onClick="location.href='buyOk?amount=49000&id={{userID}}'"/>
+                    <input type='button' value='찜' onClick="location.href='insertProduct?id={{userID}}&image_url=https://bakey-api.codeit.kr/files/629/images/sunglasses.jpg&name=Sunglasses&price=49000&amount=1'"/>
+                {{/userID}}
+            </p>
+
+    </div>
+
+    <div class="text">
+        <a href="#"><img src="https://bakey-api.codeit.kr/files/629/images/classic_loafer.jpg" width="225" height="225"></a>
+        <h2>Tassel Loafer</h2>
+        <p>89,000
+            {{#userID}}
+                <input type='button' value='구매' onClick="location.href='buyOk?amount=49000&id={{userID}}'"/>
+                <input type='button' value='찜' onClick="location.href='insertProduct?id={{userID}}&image_url=https://bakey-api.codeit.kr/files/629/images/classic_loafer.jpg&name=Tassel Loafer&price=89000&amount=1'"/>
+            {{/userID}}
+        </p>
+
+    </div>
+    <div class="text">
+        <a href="#"><img src="https://bakey-api.codeit.kr/files/629/images/beige_bag.jpg" width="225" height="225"></a>
+        <h2>beige bag</h2>
+        <p>69,000
+            {{#userID}}
+                <input type='button' value='구매' onClick="location.href='buyOk?amount=49000&id={{userID}}'"/>
+                <input type='button' value='찜' onClick="location.href='insertProduct?id={{userID}}&image_url=https://bakey-api.codeit.kr/files/629/images/beige_bag.jpg&name=beige bag&price=69000&amount=1'"/>
+            {{/userID}}
+        </p>
+
+    </div>
+    <div class="text">
+        <a href="#"><img src="https://bakey-api.codeit.kr/files/629/images/sneakers.jpg" width="225" height="225"></a>
+        <h2>Sneakers</h2>
+        <p>79,000
+            {{#userID}}
+                <input type='button' value='구매' onClick="location.href='buyOk?amount=49000&id={{userID}}'"/>
+                <input type='button' value='찜' onClick="location.href='insertProduct?id={{userID}}&image_url=https://bakey-api.codeit.kr/files/629/images/sneakers.jpg&name=Sneakers&price=79000&amount=1'"/>
+            {{/userID}}
+        </p>
+    </div>
+    <div class="text">
+        <a href="#"><img src="https://bakey-api.codeit.kr/files/629/images/slippers.jpg" width="225" height="225"></a>
+        <h2>Slippers</h2>
+        <p>29,000
+            {{#userID}}
+                <input type='button' value='구매' onClick="location.href='buyOk?amount=49000&id={{userID}}'"/>
+                <input type='button' value='찜' onClick="location.href='insertProduct?id={{userID}}&image_url=https://bakey-api.codeit.kr/files/629/images/slippers.jpg&name=Slippers&price=29000&amount=1'"/>
+            {{/userID}}
+        </p>
+    </div>
+    <div class="text">
+        <a href="#"><img src="https://bakey-api.codeit.kr/files/629/images/wrist_watch.jpg" width="225" height="225"></a>
+        <h2>Wrist Watch</h2>
+        <p>99,000
+            {{#userID}}
+                <input type='button' value='구매' onClick="location.href='buyOk?amount=49000&id={{userID}}'"/>
+                <input type='button' value='찜' onClick="location.href='insertProduct?id={{userID}}&image_url=https://bakey-api.codeit.kr/files/629/images/wrist_watch.jpg&name=Wrist Watch&price=99000&amount=1'"/>
+            {{/userID}}
+        </p>
+    </div>
+    <div class="text">
+        <a href="#"><img src="https://bakey-api.codeit.kr/files/629/images/fedora_hat.jpg" width="225" height="225"></a>
+        <h2>Fedora Hat</h2>
+        <p>39,000
+            {{#userID}}
+                <input type='button' value='구매' onClick="location.href='buyOk?amount=49000&id={{userID}}'"/>
+                <input type='button' value='찜' onClick="location.href='insertProduct?id={{userID}}&image_url=https://bakey-api.codeit.kr/files/629/images/fedora_hat.jpg&name=Fedora Hat&price=39000&amount=1'"/>
+            {{/userID}}
+        </p>
+    </div>
+    <div class="text">
+        <a href="#"><img src="https://bakey-api.codeit.kr/files/629/images/classic_loafer.jpg" width="225" height="225"></a>
+        <h2>Classic Loater</h2>
+        <p>99,000
+            {{#userID}}
+                <input type='button' value='구매' onClick="location.href='buyOk?amount=49000&id={{userID}}'"/>
+                <input type='button' value='찜' onClick="location.href='insertProduct?id={{userID}}&image_url=https://bakey-api.codeit.kr/files/629/images/classic_loafer.jpg&name=Classic Loater&price=99000&amount=1'"/>
+            {{/userID}}
+        </p>
+    </div>
+    <div class="text">
+        <a href="#"><img src="https://bakey-api.codeit.kr/files/629/images/pink_bag.jpg" width="225" height="225"></a>
+        <h2>Pink Bag</h2>
+        <p>79,000
+            {{#userID}}
+                <input type='button' value='구매' onClick="location.href='buyOk?amount=49000&id={{userID}}'"/>
+                <input type='button' value='찜' onClick="location.href='insertProduct?id={{userID}}&image_url=https://bakey-api.codeit.kr/files/629/images/pink_bag.jpg&name=Pink Bag&price=79000&amount=1'"/>
+            {{/userID}}
+        </p>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class=footer>
+    <a href="http://facebook.com">
+        <img src=https://bakey-api.codeit.kr/files/629/images/facebook.png height="20" id=img>
+    </a>
+    <a href="http://instagram.com">
+        <img src=https://bakey-api.codeit.kr/files/629/images/instagram.png height="20" id=img>
+    </a>
+    <a href="http://twitter.com">
+        <img src=https://bakey-api.codeit.kr/files/629/images/twitter.png height="20" id=img>
+    </a>
+</div>
+</body>
+</html>
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
