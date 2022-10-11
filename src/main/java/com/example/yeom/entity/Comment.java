@@ -14,7 +14,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 public class Comment extends BaseEntity{
 
-    @Id // 대표값을 지정! like a 주민등록번호
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 1,2,3, ... DB가 id를 자동 생성하는 어노테이션
     private Long id;
 
