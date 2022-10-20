@@ -1,6 +1,5 @@
 package com.example.yeom.entity;
 
-import com.example.yeom.dto.BbsDto;
 import lombok.*;
 
 import javax.persistence.*;

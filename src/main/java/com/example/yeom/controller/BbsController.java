@@ -153,7 +153,7 @@ public class BbsController {
 
         bbsService.updateBbs(request);
 
-        return "redirect:/bbs";
+        return "redirect:/bbs_view?bbs_id=" + request.getParameter("bbsID");
     }
 
     @RequestMapping("/bbs_delete")
