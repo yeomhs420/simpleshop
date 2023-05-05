@@ -1,0 +1,81 @@
+{{>layouts/header}}
+
+<head>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+</head>
+
+
+<div class="second" align="center">
+    <img class="card-img-top" width="500" height="300" src="/img/kakao.png" alt="..." />
+    <p style="font-weight: bold">카카오페이 현재 사용가능</p>
+    <label class="box-radio-input"><input type="radio" name="cp_item" value="5000"><span>5,000원</span></label>
+    <label class="box-radio-input"><input type="radio" name="cp_item" value="10000"><span>10,000원</span></label>
+    <label class="box-radio-input"><input type="radio" name="cp_item" value="15000"><span>15,000원</span></label><br/>
+    <label class="box-radio-input"><input type="radio" name="cp_item" value="20000"><span>20,000원</span></label>
+    <label class="box-radio-input"><input type="radio" name="cp_item" value="25000"><span>25,000원</span></label>
+    <label class="box-radio-input"><input type="radio" name="cp_item" value="30000"><span>30,000원</span></label><br/>
+    <label class="box-radio-input"><input type="radio" name="cp_item" value="35000"><span>35,000원</span></label>
+    <label class="box-radio-input"><input type="radio" name="cp_item" value="40000"><span>40,000원</span></label>
+    <label class="box-radio-input"><input type="radio" name="cp_item" value="50000"><span>50,000원</span></label>
+    <p  style="color: #ac2925; margin-top: 30px">카카오페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
+    <button type="button" class="btn btn-outline-dark" id="charge_kakao">충 전 하 기</button>
+</div>
+
+
+<script>
+
+    $('#charge_kakao').click(function () {
+        // getter
+        var IMP = window.IMP;
+        IMP.init('imp01715717');
+        var money = $('input[name="cp_item"]:checked').val();
+        console.log(money);
+
+
+        IMP.request_pay({
+            pg: 'kakaopay',
+            merchant_uid: 'merchant_' + new Date().getTime(),
+
+            name: 'MJU 쇼핑몰 머니충전',
+            amount: money,
+            buyer_email: 'iamport@siot.do',
+            buyer_name: '구매자이름',
+            buyer_tel: '010-1234-5678',
+            buyer_addr: '인천광역시 부평구',
+            buyer_postcode: '123-456'
+        }, function (rsp) {
+            console.log(rsp);
+            if (rsp.success) {
+                var msg = '결제가 완료되었습니다.';
+                msg += '고유ID : ' + rsp.imp_uid;
+                msg += '상점 거래ID : ' + rsp.merchant_uid;
+                msg += '결제 금액 : ' + rsp.paid_amount;
+                msg += '카드 승인번호 : ' + rsp.apply_num;
+                $.ajax({
+                    type: "GET",
+                    url: "/charge/point", //충전 금액값을 보낼 url 설정
+                    data: {
+                        "amount" : money
+                    },
+	                success: function(data){
+                        console.log(data);
+                        document.location.href="/mypage";
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);
+                  }
+                });
+            }
+
+        });
+    });
+
+
+</script>
+
+

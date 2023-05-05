@@ -1,16 +1,9 @@
 {{>layouts/header}}
 
-<!DOCTYPE html>
-<html>
+
 <head>
     <meta charset="UTF-8">
-    <title>Welcome BookMall</title>
     <link rel="stylesheet" href="/css/cart.css">
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.js"
-            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-            crossorigin="anonymous">
-    </script>
 </head>
 
 
@@ -141,6 +134,11 @@
     </div>
 </div>
 
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+</script>
 
 
 
@@ -211,9 +209,16 @@ function setTotalInfo(){
 
 
 $(".order_btn").on("click", function(){
-
-	location.href = '/buyOk?amount=' + document.querySelector(".finalTotalPrice_span").textContent;
-
+      let checked = false;
+      document.querySelectorAll('.individual_cart_checkbox').forEach(function(item) {
+      if (item.checked) {
+        checked = true;
+        location.href = '/buyOk?amount=' + document.querySelector(".finalTotalPrice_span").textContent;
+      }
+    });
+        if (!checked) {
+          alert('하나 이상의 상품을 선택해주세요.');
+        }
 
 });
 </script>

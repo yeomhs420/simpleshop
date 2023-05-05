@@ -54,10 +54,10 @@ public class LoginController {
     }
 
     @RequestMapping("/loginAction") // Parameter를 입력받는 경우, @RequestMapping or @PostMapping 사용
-    public String LoginAction(@RequestParam("userID") String id, @RequestParam("userPassword") String pw, Model model){
+    public String LoginAction(UserDto userDto, Model model){ // @RequestParam("userID") String id, @RequestParam("userPassword") String pw
 
-        if(userService.isUser(id, pw, model) == true) {
-            session.setAttribute("userID", id);
+        if(userService.isUser(userDto.getUserID(), userDto.getUserPassword(), model) == true) {
+            session.setAttribute("userID", userDto.getUserID());
             return "redirect:/shop";
         }
 

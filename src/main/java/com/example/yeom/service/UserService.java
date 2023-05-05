@@ -59,14 +59,6 @@ public class UserService {
         }
     }
 
-    public UserDto getUser(){
-        String userID = (String) session.getAttribute("userID");
-        User user = userRepository.findByUserId(userID).get(0);
-        UserDto userDto = UserDto.createUserDto(user);
-
-        return userDto;
-    }
-
     @Transactional
     public void chargeMoney(String userID, int money){  // 금액 충전
         int balance = userRepository.findByUserId(userID).get(0).getBalance();
@@ -78,6 +70,16 @@ public class UserService {
         user.setBalance(balance);
 
         userRepository.save(user);
+
+    }
+
+    @Transactional
+    public UserDto getUser(){
+        String userID = (String) session.getAttribute("userID");
+        User user = userRepository.findByUserId(userID).get(0);
+        UserDto userDto = UserDto.createUserDto(user);
+
+        return userDto;
     }
 
     @Transactional

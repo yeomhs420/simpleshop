@@ -66,22 +66,6 @@ public class ShopController {
     }
 
 
-    @GetMapping("/charge")
-    public String Charge(Model model){
-
-        model.addAttribute("userID", session.getAttribute("userID"));
-
-        return "charge";
-    }
-
-    @RequestMapping("/chargemoney") // 금액 충전
-    public String ChargeMoney(Model model, HttpServletRequest request){
-
-        userService.chargeMoney(request.getParameter("id"), Integer.parseInt(request.getParameter("money")));
-
-        return "redirect:mypage";
-    }
-
     @GetMapping("/buyOk")
     public String BuyOk(Model model, HttpServletRequest request){
         userService.buy_product(model, Integer.parseInt(request.getParameter("amount")));
