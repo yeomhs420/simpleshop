@@ -70,7 +70,7 @@ public class BbsService {
 
     public String getUserID(Long bbsID){return bbsRepository.findById(bbsID).get().getUser().getUserID();}
 
-    public void updateBbs(HttpServletRequest request){  // 댓글 수정
+    public void updateBbs(HttpServletRequest request){  // 수정
 
         Long bbsID = Long.parseLong(request.getParameter("bbsID"));
         String title = request.getParameter("Title");
@@ -79,14 +79,14 @@ public class BbsService {
         User user = userRepository.findByUserId(userID).get(0);
 
         Bbs bbs = bbsRepository.findById(bbsID).orElse(null);
-        Bbs updatedBbs = new Bbs(bbsID,  title, user, content);
+        Bbs updatedBbs = new Bbs(bbsID,  title, user, content, commentRepository.findByBbsId(bbsID));
 
         if(bbs != null){
             bbsRepository.save(updatedBbs);    // 게시판 수정
         }
     }
 
-    public void deleteBbs(long bbsID){  // 댓글 삭제
+    public void deleteBbs(long bbsID){  // 삭제
         Bbs bbs = bbsRepository.findById(bbsID).orElse(null);
 
         if(bbs != null){

@@ -169,11 +169,15 @@ public class BbsController {
 
         String sessionID = session.getAttribute("userID").toString();
 
+        System.out.println(userID + "," + sessionID + "," + bbsID);
+
         if(!sessionID.equals(userID)) {
             model.addAttribute("msg", "권한이 없습니다");
             model.addAttribute("url", "/bbs");
             return "/board/bbs_update";
         }
+
+
 
         bbsService.deleteBbs(bbsID);
 
